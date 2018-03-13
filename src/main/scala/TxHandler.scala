@@ -72,10 +72,10 @@ class TxHandler(val utxoPool: UTXOPool) {
             */
           if(!filterNonNegative){
             /** We should probably map to the values before summing this. */
-            val sumTxs: Double = txs.sum.value
+            val sumTxs: Double = txs.map(x => x.value).sum 
 
             /** THIS VALUE IS PROBABLY A PROBLEM!!! */
-            val sumUtxos: Double = utxos.sum.hashCode()
+            val sumUtxos: Double = utxos.map(x => x.hashCode()).sum 
 
             /** Either all the requirements are met, or they aren't. */
             if(sumTxs == sumUtxos) true else false
