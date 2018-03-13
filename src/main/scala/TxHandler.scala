@@ -29,7 +29,7 @@ class TxHandler(val utxoPool: UTXOPool) {
     val txs: mutable.Buffer[Transaction#Output] = tx.getOutputs.asScala
     val utxos: mutable.Buffer[UTXO] = utxoPool.getAllUTXO.asScala
 
-
+    /** This is a problem. Comparing different types. Need to re-read book to understand classes better. */
     if(txs.exists(x => utxos.contains(x))){
       /* we've met requirement one. Now we need to check if all the signatures are valid. */
 
@@ -71,11 +71,12 @@ class TxHandler(val utxoPool: UTXOPool) {
             * Need to re-read book or watch lecture while looking at computer code.
             */
           if(!filterNonNegative){
-            /** We should probably map to the values before summing this. */
-            val sumTxs: Double = txs.map(x => x.value).sum 
 
-            /** THIS VALUE IS PROBABLY A PROBLEM!!! */
-            val sumUtxos: Double = utxos.map(x => x.hashCode()).sum 
+            /** Get the sum of all transactions */
+            val sumTxs: Double = txs.map(x => x.value).sum
+
+            /** I'm not sure if I did this correctly!!! */
+            val sumUtxos: Double = utxos.map(x => x.hashCode()).sum
 
             /** Either all the requirements are met, or they aren't. */
             if(sumTxs == sumUtxos) true else false
@@ -99,8 +100,6 @@ class TxHandler(val utxoPool: UTXOPool) {
 
 
   }
-
-
 
 } // END TxHandler class
 
