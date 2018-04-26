@@ -1,4 +1,5 @@
 # Alexandracoin
-I'm writing my own cryptocurrency with the help of Princeton University's Computer Science department.
 
-I'm on vacation right now so I'm working on this sparingly. 
+This project is not going to happen. I was trying to make a point by discussing the idea of Alexandracoin. 
+
+Keep your chin up everyone. Everything's going to be OK. 
